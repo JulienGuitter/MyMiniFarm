@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="650.0" prefHeight="300.0" styleClass="btn_wood" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.eseo.e3a.myminifarm.view.UI.ContainerInterfaceUI">
+
+    <BorderPane>
+
+        <top>
+            <HBox>
+                <Label fx:id="titleLabel" styleClass="pixelLabel, interfaceTitle" text="Container" />
+            </HBox>
+        </top>
+
+        <center>
+            <VBox alignment="CENTER">
+                <HBox fx:id="inventoryContent" alignment="CENTER" maxHeight="-Infinity" spacing="5.0">
+<!--                    <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />-->
+                </HBox>
+            </VBox>
+        </center>
+    </BorderPane>
+</StackPane>

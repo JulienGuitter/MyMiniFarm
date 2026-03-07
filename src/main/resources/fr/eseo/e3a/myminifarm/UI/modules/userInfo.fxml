@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<StackPane alignment="TOP_LEFT" styleClass="uiMargin" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.eseo.e3a.myminifarm.view.UI.modules.UserInfoUI">
+
+    <VBox alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" styleClass="">
+        <StackPane styleClass="btn_wood">
+            <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../textures/UI/face/clint_neutral.png" />
+            </ImageView>
+        </StackPane>
+        <StackPane styleClass="btn_wood">
+            <Label fx:id="moneyLabel" text="99999$" styleClass="pixelLabel,fixLabelCenter"/>
+        </StackPane>
+    </VBox>
+</StackPane>

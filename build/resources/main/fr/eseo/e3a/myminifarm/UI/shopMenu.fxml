@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane fx:id="escapeMenu" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.eseo.e3a.myminifarm.view.UI.ShopUI">
+
+    <StackPane styleClass="blackBack" />
+
+    <StackPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity">
+        <StackPane alignment="CENTER" maxHeight="500.0" maxWidth="800.0" styleClass="shop_back, scroll-pane">
+            <VBox alignment="CENTER" maxWidth="Infinity" prefWidth="600" spacing="20.0">
+<!--                <Button focusTraversable="false" onAction="#onResumeClicked" prefHeight="72.0" prefWidth="250.0" styleClass="home_button, btn_wood" text="Resume" />-->
+<!--                <Button focusTraversable="false" onAction="#onSettingsClicked" prefHeight="72.0" prefWidth="250.0" styleClass="home_button, btn_wood" text="Settings" />-->
+<!--                <Button focusTraversable="false" onAction="#onQuitClicked" prefHeight="72.0" prefWidth="250.0" styleClass="home_button, btn_wood" text="Quit" />-->
+                <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                    <VBox alignment="CENTER_LEFT">
+                        <Button onAction="#onChangeShopContainer" userData="0" alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" prefHeight="90.0" prefWidth="90.0" styleClass="button, btn_wood, smallLabel" text="Seeds">
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@../textures/UI/seedBtn.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+<!--                        TODO : Reactivate when adding the animals -->
+<!--                        <Button onAction="#onChangeShopContainer" userData="1" alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" prefHeight="90.0" prefWidth="90.0" styleClass="button, btn_wood, smallLabel" text="Animals">-->
+<!--                            <graphic>-->
+<!--                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                                    <Image url="@../textures/UI/animalBtn.png" />-->
+<!--                                </ImageView>-->
+<!--                            </graphic>-->
+<!--                             <font>-->
+<!--                                <Font size="10.0" />-->
+<!--                             </font>-->
+<!--                        </Button>-->
+                        <Button onAction="#onChangeShopContainer" userData="2" alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" prefHeight="90.0" prefWidth="90.0" styleClass="button, btn_wood, smallLabel" text="Machines">
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@../textures/UI/machineBtn.png" />
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Button>
+                        <Button onAction="#onChangeShopContainer" userData="3" alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" prefHeight="90.0" prefWidth="90.0" styleClass="button, btn_wood, smallLabel" text="Tools">
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@../textures/UI/toolBtn.png" />
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Button>
+                        <Button onAction="#onChangeShopContainer" userData="4" alignment="CENTER" contentDisplay="TOP" graphicTextGap="0.0" maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" prefHeight="90.0" prefWidth="90.0" styleClass="button, btn_wood, smallLabel" text="Product">
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                    <Image url="@../textures/UI/productBtn.png" />
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="10.0" />
+                            </font>
+                        </Button>
+                      <opaqueInsets>
+                         <Insets right="10.0" />
+                      </opaqueInsets>
+                     </VBox>
+                     <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: transparent;" styleClass="scroll-pane" HBox.hgrow="ALWAYS">
+                         <VBox fx:id="itemContainer" spacing="10.0">
+                             <fx:include source="modules/shopItem.fxml" />
+
+                             <padding>
+                                <Insets right="10.0" />
+                             </padding>
+                         </VBox>
+                     </ScrollPane>
+                </HBox>
+            </VBox>
+            <StackPane.margin>
+                <Insets />
+            </StackPane.margin>
+        </StackPane>
+
+        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" scaleX="2.0" scaleY="2.0">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../textures/UI/label_container.png" />
+            </ImageView>
+            <Label styleClass="pixelLabel, fixLabelCenter" text="SHOP">
+                <StackPane.margin>
+                   <Insets top="10.0" />
+                </StackPane.margin>
+            </Label>
+            <StackPane.margin>
+                <Insets top="-30.0" />
+            </StackPane.margin>
+        </StackPane>
+    </StackPane>
+
+</StackPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane alignment="TOP_RIGHT" styleClass="uiMargin" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.eseo.e3a.myminifarm.view.UI.modules.TimeInfoUI">
+
+    <HBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" styleClass="">
+        <VBox spacing="5">
+            <StackPane styleClass="btn_wood">
+                <Label fx:id="dayLabel" text="Thuesday" styleClass="pixelLabel,fixLabelCenter"/>
+            </StackPane>
+            <StackPane styleClass="btn_wood">
+                <Label fx:id="hourLabel" text="14h 45m" styleClass="pixelLabel,fixLabelCenter"/>
+            </StackPane>
+        </VBox>
+    </HBox>
+
+</StackPane>

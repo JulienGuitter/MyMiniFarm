@@ -1,0 +1,279 @@
+@startuml
+' Diagramme de classes généré automatiquement pour MyMiniFarm (version mai 2025)
+
+package model {
+    class Player {
+        - Vector2 pos
+        - Vector2 speed
+        - Direction direction
+        - int invBarIndex
+        - boolean isMoving
+        - boolean isInteracting
+        - int money
+        - Inventory inventory
+        - String name
+        - boolean hasChange
+    }
+    class Map {
+        - MapJson mapJson
+        - LayerJson collisionLayer
+        - HashMap<Vector2, Item> dropedItem
+        - HashMap<Point2D, Machine> machines
+        - HashMap<Point2D, Container> containers
+        - HashMap<Point2D, CropCell> cropCells
+        - Vector2 pos
+    }
+    class Inventory {
+        - int size
+        - ArrayList<Item> items
+        - boolean hasChanged
+    }
+    package farmElement {
+        abstract class Item {
+            - String name
+            - int resalePrice
+            - int cost
+            - ItemType type
+            - int textureId
+            - int quantity
+        }
+        class Animal extends Item {
+            - boolean isFed
+            - long nextProductionTime
+            - Animals typeAnimals
+        }
+        class Machine extends Item {
+            - boolean isInUse
+            - ReceipeType receipeType
+            - Machines typeMachine
+            - Inventory inventory
+            - GameTime processDelay
+            - GameTime timeRemaining
+        }
+        class Product extends Item {
+            - ProductType productType
+            - CultureProductType cultureProductType
+            - AnimalProductType animalProductType
+            - MachineProductType machineProductType
+            - Seed seedProductType
+        }
+        class Tool extends Item {
+            - ToolType typeTools
+        }
+        class Container extends Item {
+            - Containers typeContainer
+            - Inventory inventory
+            - boolean keepOnClose
+        }
+        class CropCell extends Item {
+            - boolean isOccupied
+            - Culture culture
+        }
+        class Culture extends Item {
+            - int maxGrowthStage
+            - CultureType cultureType
+            - int growthStage
+            - boolean isPlanted
+            - boolean isWatered
+            - boolean isMature
+            - int timeForOnStage
+            - GameTime nextStateTime
+        }
+        class AnimalCell extends Item {
+            - List<Animal> animals
+        }
+        class FarmEnums {
+        }
+    }
+    package json {
+        class ConfigJson {
+            - HashMap<String, String> keys
+            - boolean fullscreen
+            - int volume
+            - int ups
+            - int fps
+        }
+        class MapJson {
+            - List<LayerJson> layers
+            - List<TilesetJson> tilesets
+            - int width
+            - int height
+            - int tilewidth
+            - int tileheight
+            - int nextobjectid
+            - int nextlayerid
+        }
+        class LayerJson {
+            - List<Integer> data
+            - int height
+            - String name
+            - double opacity
+            - boolean visible
+            - int width
+            - int x
+            - int y
+        }
+        class TilesetJson {
+            - int firstgid
+        }
+    }
+    package type {
+        enum GameState
+        enum KeyAction
+        enum Direction
+    }
+}
+
+package controller {
+    class GameController {
+        - static GameController instance
+        - ConfigController configController
+        - UIController uiController
+        - GameState gameState
+        - GameLoop gameLoop
+        - Thread gameThread
+        - boolean debugMode
+    }
+    class UIController {
+        - static UIController instance
+        - ...
+    }
+    class ConfigController {
+        - static ConfigController instance
+        - ConfigJson config
+        - KeyBindingManager keyBindingManager
+    }
+}
+
+package view {
+    package UI {
+        package modules {
+            class InventoryBarUI
+            class TimeInfoUI
+            class UserInfoUI
+            class ShopItemUI
+        }
+        class GameUI
+        class EscapeMenuUI
+        class MachineInterfaceUI
+        class MenuUI
+        class SettingsUI
+        class ShopUI
+        class ContainerInterfaceUI
+    }
+    class MapView
+    class PlayerView
+    class SpriteSheet
+    class ElementView
+    class ItemView
+}
+
+package utils {
+    class KeyBindingManager {
+        - static KeyBindingManager instance
+        - HashMap<String, String> actionToKey
+        - HashMap<String, String> keyToAction
+    }
+    class AudioManager
+    class GameTime
+    class Utils
+    class Vector2
+    class Point2D
+    class Movements
+    class DragContext
+}
+
+' Héritages principaux
+model.farmElement.Item <|-- model.farmElement.Animal
+model.farmElement.Item <|-- model.farmElement.Machine
+model.farmElement.Item <|-- model.farmElement.Product
+model.farmElement.Item <|-- model.farmElement.Tool
+model.farmElement.Item <|-- model.farmElement.Container
+model.farmElement.Item <|-- model.farmElement.CropCell
+model.farmElement.Item <|-- model.farmElement.Culture
+model.farmElement.Item <|-- model.farmElement.AnimalCell
+
+' Associations et dépendances principales
+model.Player --> model.Inventory : possède >
+model.Player --> utils.Vector2 : position/speed
+model.Player --> model.type.Direction
+model.Map --> model.json.MapJson
+model.Map --> model.json.LayerJson
+model.Map --> model.farmElement.Machine : machines >
+model.Map --> model.farmElement.Container : containers >
+model.Map --> model.farmElement.CropCell : cropCells >
+model.Map --> model.farmElement.Item : dropedItem >
+model.Map --> utils.Vector2
+model.Map --> utils.Point2D
+model.Inventory --> model.farmElement.Item : items >
+model.farmElement.Animal --> model.farmElement.FarmEnums.Animals
+model.farmElement.Animal --> model.farmElement.FarmEnums.MachineProductType : mange >
+model.farmElement.Machine --> model.farmElement.FarmEnums.Machines
+model.farmElement.Machine --> model.Inventory
+model.farmElement.Machine --> model.farmElement.FarmEnums.ReceipeType
+model.farmElement.Machine --> utils.GameTime
+model.farmElement.Product --> model.farmElement.FarmEnums.ProductType
+model.farmElement.Product --> model.farmElement.FarmEnums.CultureProductType
+model.farmElement.Product --> model.farmElement.FarmEnums.AnimalProductType
+model.farmElement.Product --> model.farmElement.FarmEnums.MachineProductType
+model.farmElement.Product --> model.farmElement.FarmEnums.Seed
+model.farmElement.Tool --> model.farmElement.FarmEnums.ToolType
+model.farmElement.Container --> model.farmElement.FarmEnums.Containers
+model.farmElement.Container --> model.Inventory
+model.farmElement.CropCell --> model.farmElement.Culture
+model.farmElement.Culture --> model.farmElement.FarmEnums.CultureType
+model.farmElement.Culture --> model.farmElement.FarmEnums.Seed
+model.farmElement.Culture --> utils.GameTime
+model.farmElement.AnimalCell --> model.farmElement.Animal : animaux >
+controller.ConfigController --> model.json.ConfigJson
+controller.ConfigController --> utils.KeyBindingManager
+controller.GameController --> controller.ConfigController
+controller.GameController --> controller.UIController
+controller.GameController --> model.type.GameState
+controller.GameController --> controller.GameLoop
+controller.UIController --> view.UI.GameUI
+controller.UIController --> view.UI.EscapeMenuUI
+controller.UIController --> view.UI.MachineInterfaceUI
+controller.UIController --> view.UI.MenuUI
+controller.UIController --> view.UI.SettingsUI
+controller.UIController --> view.UI.ShopUI
+controller.UIController --> view.UI.ContainerInterfaceUI
+view.UI.GameUI --> view.UI.modules.InventoryBarUI
+view.UI.GameUI --> view.UI.modules.TimeInfoUI
+view.UI.GameUI --> view.UI.modules.UserInfoUI
+view.UI.ShopUI --> view.UI.modules.ShopItemUI
+view.UI.MachineInterfaceUI --> model.farmElement.Machine
+view.UI.ContainerInterfaceUI --> model.farmElement.Container
+view.UI.GameUI --> view.MapView
+view.UI.GameUI --> view.PlayerView
+view.UI.GameUI --> utils.AudioManager
+view.UI.GameUI --> utils.KeyBindingManager
+view.UI.GameUI --> utils.Utils
+view.UI.GameUI --> utils.GameTime
+view.UI.GameUI --> model.Inventory
+view.UI.GameUI --> model.Player
+view.UI.GameUI --> model.Map
+view.UI.GameUI --> model.farmElement.Item
+view.UI.GameUI --> model.farmElement.Tool
+view.UI.GameUI --> model.farmElement.Product
+view.UI.GameUI --> model.farmElement.Container
+view.UI.GameUI --> model.farmElement.Animal
+view.UI.GameUI --> model.farmElement.Machine
+view.UI.GameUI --> model.farmElement.CropCell
+view.UI.GameUI --> model.farmElement.Culture
+view.UI.GameUI --> model.farmElement.AnimalCell
+view.UI.GameUI --> model.farmElement.FarmEnums
+view.UI.GameUI --> utils.Vector2
+view.UI.GameUI --> utils.Point2D
+view.UI.GameUI --> utils.Movements
+view.UI.GameUI --> utils.DragContext
+view.UI.GameUI --> view.SpriteSheet
+view.UI.GameUI --> view.ElementView
+view.UI.GameUI --> view.ItemView
+view.MapView --> model.Map
+view.MapView --> view.SpriteSheet
+view.PlayerView --> model.Player
+view.PlayerView --> view.SpriteSheet
+view.ElementView --> view.SpriteSheet
+view.ItemView --> view.SpriteSheet
+@enduml

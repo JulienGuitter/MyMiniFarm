@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<BorderPane stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+
+    <top>
+        <HBox>
+            <Label text="Furnace" styleClass="pixelLabel, interfaceTitle" />
+        </HBox>
+    </top>
+
+    <center>
+            <HBox alignment="CENTER" maxHeight="-Infinity" spacing="30.0">
+                <StackPane fx:id="input" styleClass="cell_wood, inv_cell" />
+                <StackPane fx:id="output" styleClass="cell_wood, inv_cell" />
+            </HBox>
+    </center>
+</BorderPane>

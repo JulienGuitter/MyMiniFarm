@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane stylesheets="@css/style.css"
+            fx:controller="fr.eseo.e3a.myminifarm.view.UI.GameUI"
+            styleClass="game_ui"
+            fx:id="gameUI"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1">
+
+    <top>
+        <StackPane>
+            <fx:include source="modules/userInfo.fxml" fx:id="userInfo" />
+            <fx:include source="modules/timeInfo.fxml" fx:id="timeInfo" />
+        </StackPane>
+    </top>
+
+    <center>
+    </center>
+
+    <bottom>
+        <fx:include source="modules/inventory_bar.fxml" fx:id="inventoryBar" />
+    </bottom>
+
+    <left>
+    </left>
+
+    <right>
+    </right>
+
+</BorderPane>

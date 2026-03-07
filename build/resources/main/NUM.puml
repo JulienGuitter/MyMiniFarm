@@ -1,0 +1,29 @@
+@startuml
+start
+
+:Switch currentState;
+if (FORWARD) then (oui)
+  :updateForward();
+elseif (TURN_R) then (oui)
+  :updateRight();
+elseif (TURN_L) then (oui)
+  :updateLeft();
+elseif (STOP) then (oui)
+  :defaultPose();
+elseif (SPRINT) then (oui)
+  :updateSprint();
+else (autre)
+
+endif
+
+:now = HAL_GetTick();
+if ((now - lastStepTick) >= MOVEMENT_DELAY) then (oui)
+  :lastStepTick = now;
+  :movementStep++;
+  if (movementStep > 4) then (oui)
+    :movementStep = 0;
+  endif
+endif
+
+stop
+@enduml

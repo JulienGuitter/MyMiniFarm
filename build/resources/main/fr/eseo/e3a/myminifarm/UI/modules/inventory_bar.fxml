@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="10.0" styleClass="uiMargin" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.eseo.e3a.myminifarm.view.UI.modules.InventoryBarUI">
+
+    <Label fx:id="itemLabel" text="" styleClass="pixelLabel"/>
+
+    <HBox fx:id="inventoryBar" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="4" styleClass="invBar, btn_wood">
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+        <StackPane minHeight="70.0" minWidth="70.0" styleClass="cell_wood, inv_cell" />
+    </HBox>
+</VBox>

@@ -1,0 +1,299 @@
+/* Main style */
+
+@font-face {
+    font-family: "Daydream";
+    src: url("../../fonts/Daydream.ttf");
+}
+
+.home_background {
+    -fx-background-image: url("../../textures/UI/background.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center bottom;
+}
+
+.settings_background {
+    -fx-background-image: url("../../textures/UI/background_settings.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center bottom;
+}
+
+.game_background{
+    -fx-background-color: cyan;
+}
+
+.blackBack{
+    -fx-background-color: black;
+    -fx-opacity: 0.5;
+}
+
+.pixelLabel {
+     -fx-background-color: transparent;
+     -fx-font-family: "Daydream";
+     -fx-text-fill: #fcda82;
+     -fx-alignment: center;
+ }
+.pixelLabel .text {
+    -fx-effect: dropshadow(one-pass-box, #503108, 10, 10, 0, 0);
+}
+.fixLabelCenter{
+    -fx-translate-y: -5px;
+}
+
+/* End Main style */
+
+
+
+
+
+/* Game Interface style */
+
+.game_ui{
+    -fx-background-color: transparent;
+}
+
+.uiMargin{
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.invBar{
+    -fx-padding: 1px 10px 3px 10px;
+}
+.inv_cell{
+    -fx-pref-width: 64px;
+    -fx-pref-height: 64px;
+}
+
+.userInfo{
+    -fx-background-color: transparent;
+    -fx-padding: 0px 10px 0px 10px;
+}
+
+.interfaceTitle{
+    -fx-padding: 0 0 0 20px;
+}
+
+.selected_inv_cell{
+    -fx-border-image-source: url("../../textures/UI/selected_cell_64x64.png") !important;
+}
+
+/* End Game Interface style */
+
+
+
+
+/* Button style */
+
+.home_button{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-family: "Daydream";
+    -fx-font-size: 20px;
+    -fx-text-fill: #fcda82;
+    -fx-alignment: center;
+    -fx-padding: 0px 5px 15px 5px;
+}
+.home_button .text {
+    -fx-effect: dropshadow(one-pass-box, #503108, 10, 10, 0, 0);
+}
+.home_button:hover{
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.1), 100, 10, 0, 0);
+}
+
+.button{
+    -fx-cursor: hand;
+    -fx-font-family: "Daydream";
+    -fx-font-size: 12px;
+    -fx-text-fill: #fcda82;
+
+    -fx-padding: 0px 10px 10px 10px;
+}
+.button .text {
+    -fx-effect: dropshadow(one-pass-box, #503108, 10, 10, 0, 0);
+}
+.button:hover{
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.1), 100, 10, 0, 0);
+}
+.smallLabel{
+    -fx-font-size: 6px;
+}
+
+/* End Button style */
+
+
+
+/* Slider style */
+
+.slider {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+}
+
+.slider .thumb {
+    -fx-background-color: #cb842c;
+    -fx-background-insets: 1;
+    -fx-background-radius: 4;
+}
+
+.slider .track {
+    -fx-background-color: #3a2508;
+    -fx-background-insets: 1;
+    -fx-background-radius: 4;
+    -fx-opacity: .3;
+}
+
+/* End Slider style */
+
+
+
+/* Checkbox style */
+
+.checkbox {
+    -fx-background-color: transparent;
+    -fx-text-fill: #fcda82;
+    -fx-font-family: "Daydream";
+    -fx-font-size: 20px;
+}
+
+.checkbox .box {
+    -fx-padding: 7px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../textures/UI/cell_64x64.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+}
+
+.checkbox:selected .mark {
+    -fx-background-color: #fcda82;
+    -fx-effect: dropshadow(one-pass-box, #503108, 10, 10, 0, 0);
+}
+
+/* End Checkbox style*/
+
+
+
+
+/* Scrollbar style */
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-pref-width: 12px;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:horizontal {
+    -fx-pref-height: 12px;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #cb842c;
+    -fx-background-insets: 2;
+    -fx-background-radius: 4;
+}
+
+.scroll-pane .scroll-bar .track {
+    -fx-background-color: #3a2508;
+    -fx-background-insets: 2;
+    -fx-background-radius: 4;
+    -fx-opacity: .3;
+}
+
+.scroll-pane .increment-button,
+.scroll-pane .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-shape: "";
+    -fx-min-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+    -fx-opacity: 0;
+}
+
+/* End Scrollbar style */
+
+
+
+
+
+/* Textures */
+
+.btn_wood{
+    -fx-background-color: transparent;
+    -fx-border-image-source: url("../../textures/UI/btn_64x64.png");
+    -fx-border-image-slice: 12 12 fill;
+    -fx-border-image-width: 12 12;
+    -fx-border-image-repeat: repeat;
+}
+
+.label_wood{
+    -fx-background-color: transparent;
+    -fx-border-image-source: url("../../textures/UI/container_64x64.png");
+    -fx-border-image-slice: 12 12 fill;
+    -fx-border-image-width: 12 12;
+    -fx-border-image-repeat: repeat;
+
+    -fx-padding: 0 15px 15px 15px;
+}
+.shop_wood{
+    -fx-background-color: transparent;
+    -fx-border-image-source: url("../../textures/UI/container_64x64.png");
+    -fx-border-image-slice: 12 12 fill;
+    -fx-border-image-width: 12 12;
+    -fx-border-image-repeat: repeat;
+}
+
+.interface_wood{
+    -fx-background-color: transparent;
+    -fx-border-image-source: url("../../textures/UI/interface_64x64.png");
+    -fx-border-image-slice: 12 12 fill;
+    -fx-border-image-width: 12 12;
+    -fx-border-image-repeat: repeat;
+}
+.inner_interface_wood{
+    -fx-background-color: transparent;
+    -fx-border-image-source: url("../../textures/UI/interface_64x64.png");
+    -fx-border-image-slice: 12 12 fill;
+    -fx-border-image-width: 0 0;
+    -fx-border-image-repeat: repeat;
+}
+.cell_wood{
+    -fx-background-color: transparent;
+    -fx-border-image-source: url("../../textures/UI/cell_64x64.png");
+    -fx-border-image-slice: 12 12 fill;
+    -fx-border-image-width: 12 12;
+    -fx-border-image-repeat: repeat;
+}
+
+
+.shop_back{
+    -fx-background-color: transparent;
+    -fx-border-image-source: url("../../textures/UI/shop_back.png");
+    -fx-border-image-slice: 110 80 40 80 fill;
+    -fx-border-image-width: 110 80 40 80;
+    -fx-border-image-repeat: repeat;
+}
+
+/* End Textures */
+
+
+
+
+
+
+
+
+/* Debug style */
+
+.debugBackground{
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+}
+.debugPadding{
+    -fx-padding: 10px;
+}
+
+/* End Debug style */

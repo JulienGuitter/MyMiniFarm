@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" mouseTransparent="true">
+    <StackPane minWidth="150.0">
+        <StackPane styleClass="debugBackground" />
+        <VBox styleClass="debugPadding">
+            <Label text="Debug :" textFill="WHITE">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font></Label>
+            <HBox>
+                <Label text="FPS : " textFill="WHITE" />
+                <Label fx:id="fpsLabel" text="0" textFill="WHITE" />
+            </HBox>
+            <HBox>
+                <Label text="UPS : " textFill="WHITE" />
+                <Label fx:id="upsLabel" text="0" textFill="WHITE" />
+            </HBox>
+
+            <HBox>
+                <Label text="XY : " textFill="WHITE" />
+                <Label text="0.000 / 0.00000 / 0.000" textFill="WHITE" fx:id="xyLabel" />
+            </HBox>
+
+        </VBox>
+    </StackPane>
+</Pane>
